@@ -19,8 +19,16 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
-    pass
-
+    if True in map(lambda x: x < 1,(a,b,c)) or \
+       a + b < c or \
+       a + c < b or \
+       b + c < a: 
+        raise TriangleError
+    else:
+        lenset = len(set([a,b,c]))
+        if lenset == 1: return 'equilateral'
+        elif lenset == 2: return 'isosceles'
+        else: return 'scalene'
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(StandardError):
